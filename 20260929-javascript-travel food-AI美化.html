@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenData - 地方美食資料練習</title>
+    <link rel="stylesheet" href="CSS/20260924.css">
+    <style>
+        /* ========================================
+       旅宿網站主題變數
+    ======================================== */
+        :root {
+            /* 主色 */
+            --primary-color: #8b6f47;
+            --primary-dark: #665037;
+            --primary-light: #b89a72;
+
+            /* 輔助色 */
+            --accent-color: #d8b98c;
+            --green-color: #75856b;
+
+            /* 文字 */
+            --text-color: #403a34;
+            --text-light: #7d756c;
+
+            /* 背景 */
+            --body-bg: #f5f1eb;
+            --wrapper-bg: #fffdf9;
+            --card-bg: #ffffff;
+
+            /* 邊框 */
+            --border-color: #e7dfd4;
+
+            /* 圓角 */
+            --radius-small: 8px;
+            --radius-medium: 14px;
+            --radius-large: 22px;
+
+            /* 陰影 */
+            --shadow-small:
+                0 3px 10px rgba(70, 55, 40, 0.08);
+
+            --shadow-medium:
+                0 8px 24px rgba(70, 55, 40, 0.12);
+
+            --shadow-hover:
+                0 15px 35px rgba(70, 55, 40, 0.18);
+
+            /* 間距 */
+            --spacing-small: 10px;
+            --spacing-medium: 20px;
+            --spacing-large: 30px;
+
+            /* 動畫 */
+            --transition: all 0.3s ease;
+        }
+
+
+        /* ========================================
+       全域設定
+    ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                Arial,
+                sans-serif;
+
+            background: var(--body-bg);
+            color: var(--text-color);
+
+            line-height: 1.7;
+        }
+
+
+        /* ========================================
+       外層容器
+    ======================================== */
+        .wrapper {
+            width: 1024px;
+
+            margin-top: 50px;
+            margin-bottom: 50px;
+            margin-left: auto;
+            margin-right: auto;
+
+            padding: var(--spacing-large);
+
+            background: var(--wrapper-bg);
+
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-large);
+
+            box-shadow: var(--shadow-medium);
+
+            overflow: hidden;
+        }
+
+
+        /* ========================================
+       旅宿卡片
+    ======================================== */
+        .demo {
+            width: 32%;
+
+            float: left;
+
+            margin-top: 15px;
+            margin-right: 2%;
+
+            background: var(--card-bg);
+
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-medium);
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow-small);
+
+            transition: var(--transition);
+        }
+
+
+        /* 每 3 張卡片最後一張取消右邊距 */
+        .demo:nth-child(3n) {
+            margin-right: 0;
+        }
+
+
+        /* ========================================
+       卡片 Hover
+    ======================================== */
+        .demo:hover {
+            transform: translateY(-8px);
+
+            box-shadow: var(--shadow-hover);
+
+            border-color: var(--accent-color);
+        }
+
+
+        /* ========================================
+       旅宿圖片
+    ======================================== */
+        .demo .logo {
+            width: 100%;
+            height: 220px;
+
+            background-image:
+                linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.02),
+                    rgba(0, 0, 0, 0.20)),
+                url(images/landscape.avif);
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+
+            transition: var(--transition);
+        }
+
+
+        /* 圖片 Hover 微放大 */
+        .demo:hover .logo {
+            background-size: 105%;
+        }
+
+
+        /* ========================================
+       如果 .demo 裡面有標題
+       例如：
+       <h2>山景雙人房</h2>
+    ======================================== */
+        .demo h2 {
+            padding: 18px 20px 5px;
+
+            color: var(--primary-dark);
+
+            font-size: 21px;
+            font-weight: 600;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ========================================
+       旅宿介紹文字
+    ======================================== */
+        .demo p {
+            padding: 0 20px 18px;
+
+            color: var(--text-light);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ========================================
+       按鈕
+    ======================================== */
+        .demo a {
+            display: inline-block;
+
+            margin: 0 20px 20px;
+            padding: 9px 22px;
+
+            color: #ffffff;
+            background: var(--primary-color);
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: var(--transition);
+        }
+
+
+        .demo a:hover {
+            background: var(--primary-dark);
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 5px 12px rgba(102, 80, 55, 0.25);
+        }
+
+
+        /* ========================================
+       價格文字
+       例如：
+       <span class="price">$3,800</span>
+    ======================================== */
+        .price {
+            display: block;
+
+            padding: 0 20px 10px;
+
+            color: var(--primary-color);
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+
+        /* ========================================
+       標籤
+       例如：
+       <span class="tag">熱門房型</span>
+    ======================================== */
+        .tag {
+            display: inline-block;
+
+            margin: 15px 20px 0;
+            padding: 4px 12px;
+
+            color: #ffffff;
+            background: var(--green-color);
+
+            border-radius: 20px;
+
+            font-size: 12px;
+        }
+
+
+        /* ========================================
+       RWD：平板
+    ======================================== */
+        @media screen and (max-width: 1024px) {
+
+            .wrapper {
+                width: 94%;
+
+                padding: 25px;
+
+                margin-top: 35px;
+            }
+
+            .demo {
+                width: 49%;
+
+                margin-right: 2%;
+            }
+
+            /* 第二張卡片取消右邊距 */
+            .demo:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            /* 修正第三張卡片 */
+            .demo:nth-child(3n) {
+                margin-right: 2%;
+            }
+
+            .demo .logo {
+                height: 230px;
+            }
+        }
+
+
+        /* ========================================
+       RWD：手機
+    ======================================== */
+        @media screen and (max-width: 600px) {
+
+            body {
+                background: var(--wrapper-bg);
+            }
+
+            .wrapper {
+                width: 100%;
+
+                margin: 0;
+                padding: 15px;
+
+                border: none;
+                border-radius: 0;
+
+                box-shadow: none;
+            }
+
+            .demo,
+            .demo:nth-child(2n),
+            .demo:nth-child(3n) {
+                width: 100%;
+
+                margin-right: 0;
+                margin-top: 15px;
+            }
+
+            .demo .logo {
+                height: 210px;
+            }
+
+            .demo h2 {
+                font-size: 20px;
+            }
+        }
+
+
+        /* ========================================
+       RWD：小型手機
+    ======================================== */
+        @media screen and (max-width: 400px) {
+
+            .wrapper {
+                padding: 10px;
+            }
+
+            .demo .logo {
+                height: 190px;
+            }
+
+            .demo h2 {
+                font-size: 19px;
+            }
+
+            .demo p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display-1 fw-900 title-01">地方美食餐廳列表</div>
+    <div class="wrapper" id="foodlist">
+        <div class="demo">
+            <div class="logo bg-img" style="background-image: url(images/landscape.avif);"></div>
+            <p class="title-03">店家:XXX</p>
+            <p class="title-03">電話:XXX</p>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="js/TravelFood.js"></script>
+    <script>
+        console.log(food);
+        food.forEach(function (item) {
+            // console.log(item.Name);
+            // console.log(item.City);
+            // console.log(item.Email);
+            $("#foodlist").append('<div class="demo"><div class="logo bg-img" style="background-image: url(' + item.PicURL + ');"></div><p class="title-03">店家:'+item.Name+'</p><p class="title-03">電話:'+item.Tel+'</p></div>')
+        });
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+:root{
+    --page-background-color: rgb(252, 244, 238);
+    --header-background-color: rgb(196, 116, 116);
+    --navigation-background-color: rgb(196, 116, 116);
+    --navigation-link-background-color: rgb(222, 151, 151);
+    --navigation-link-text-color: rgb(255, 255, 255);
+    --navigation-link-shadow-color: rgb(110, 72, 72);
+    --navigation-hover-shadow-color: rgb(255, 255, 255);
+    --content-background-color: rgb(249, 224, 214);
+    --content-heading-color: rgb(143, 69, 69);
+    --content-link-background-color: rgb(177, 91, 91);
+    --content-link-text-color: rgb(255, 255, 255);
+    --content-link-shadow-color: rgb(110, 72, 72);
+    --footer-background-color: rgb(111, 69, 69);
+    --footer-text-color: rgb(255, 255, 255);
+}
+
+body{
+    font-family: "Zen Maru Gothic", sans-serif;
+}
+
+/* 字體粗細度 */
+.fw-100{
+    font-weight: 100;
+}
+
+.fw-200{
+    font-weight: 200;
+}
+
+.fw-300{
+    font-weight: 300;
+}
+
+.fw-400{
+    font-weight: 400;
+}
+
+.fw-500{
+    font-weight: 500;
+}
+
+.fw-600{
+    font-weight: 600;
+}
+
+.fw-700{
+    font-weight: 700;
+}
+
+.fw-800{
+    font-weight: 800;
+}
+
+.fw-900{
+    font-weight: 900;
+}
+
+/* 標題 */
+.title-01{
+    font-size: 36px;
+    font-weight: 900;
+    text-align: center;
+    color: blue;
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+.title-02{
+    font-size: 28px;
+    font-weight: 700;
+    text-align: left;
+    color: rgb(207, 105, 21); 
+    letter-spacing: 1.5px;
+    line-height: 1.4;   
+}
+
+.title-03{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    color: rgb(72, 197, 149);  
+    letter-spacing: 1px;
+    line-height: 1.4;     
+}
+
+.title-04{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(72, 197, 149);  
+    letter-spacing: 1px;
+    line-height: 1.4;     
+}
+
+/* 背景圖 */
+.bg-img{
+    background-position: center center;
+    background-size: cover;
+}
