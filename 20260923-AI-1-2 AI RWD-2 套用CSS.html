@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習01. 使用CSS語法配置版面</title>
+    <link rel="stylesheet" href="CSS/20260924.css">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        background-color: var(--page-background-color);
+    }
+
+    .wrapper{
+        width: 1024px;
+        margin-top: 0px;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logo{
+        width: 1024px;
+        height: 160px;
+        background-color: var(--header-background-color);
+        background-image: url(images/landscape.avif);
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .nav{
+        background-color: var(--navigation-background-color);
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .nav ul{
+        display: inline-block;
+    }
+
+    .nav ul li{
+        float: left;
+        list-style-type: none;
+    }
+
+    .nav ul li a{
+        text-decoration: none;
+        background-color: var(--navigation-link-background-color);
+        color: var(--navigation-link-text-color);
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px 2px var(--navigation-link-shadow-color);
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .nav ul li a:hover{
+        border-radius: 0px;
+        box-shadow: 2px 2px 4px 2px var(--navigation-hover-shadow-color);
+    }
+
+    .content{
+        padding: 30px 80px;
+        background-color: var(--content-background-color);
+    }
+
+    .content h1{
+        text-align: center;
+        color: var(--content-heading-color);
+        font-size: 48px;
+    }
+
+    .content p{
+        font-size: 24px;
+        margin: 20px;
+    }
+
+    .content a{
+        display: block;
+        background-color: var(--content-link-background-color);
+        width: 130px;
+        height: 40px;
+        margin-top: 20px;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        text-decoration: none;
+        color: var(--content-link-text-color);
+        text-align: center;
+        font-size: 22px;
+        line-height: 40px;
+        font-weight: bold;
+        box-shadow: 2px 2px 2px 2px var(--content-link-shadow-color);
+        border-radius: 5px;
+    }
+
+    .footer{
+        background-color: var(--footer-background-color);
+        color: var(--footer-text-color);
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    /* ========================================
+       響應式 RWD
+       1024px 以下
+       ======================================== */
+
+    @media screen and (max-width: 1024px){
+
+        .wrapper{
+            width: 100%;
+        }
+
+        .logo{
+            width: 100%;
+            height: 120px;
+            background-image: url(images/snow.avif);
+        }
+
+        .nav ul{
+            display: block;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .nav ul li{
+            float: none;
+        }
+
+        .nav ul li a{
+            display: block;
+            margin-right: 0;
+            margin-bottom: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 0;
+            box-shadow: 1px 1px 1px 1px var(--navigation-link-shadow-color);
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .content{
+            padding: 25px 30px;
+        }
+
+        .content h1{
+            font-size: 36px;
+        }
+
+        .content p{
+            font-size: 18px;
+        }
+
+        .content a{
+            font-size: 18px;
+            box-shadow: 1px 1px 1px 1px var(--content-link-shadow-color);
+            border-radius: 0px;
+        }
+
+        .footer{
+            font-size: 18px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+
+
+    /* ========================================
+       Premium 高級精品商務風
+       600px 以下
+       ======================================== */
+
+    @media screen and (max-width: 600px){
+
+        /* Premium 配色 */
+        :root{
+            --page-background-color: rgb(245, 242, 236);
+
+            --header-background-color: rgb(30, 29, 27);
+
+            --navigation-background-color: rgb(30, 29, 27);
+
+            --navigation-link-background-color: rgb(48, 46, 43);
+
+            --navigation-link-text-color: rgb(235, 221, 190);
+
+            --navigation-link-shadow-color: rgb(20, 19, 18);
+
+            --navigation-hover-shadow-color: rgb(205, 181, 132);
+
+            --content-background-color: rgb(248, 246, 241);
+
+            --content-heading-color: rgb(45, 43, 40);
+
+            --content-link-background-color: rgb(116, 94, 61);
+
+            --content-link-text-color: rgb(255, 252, 245);
+
+            --content-link-shadow-color: rgb(75, 62, 44);
+
+            --footer-background-color: rgb(30, 29, 27);
+
+            --footer-text-color: rgb(221, 209, 185);
+        }
+
+
+        /* 精品風 Header */
+
+        .logo{
+            height: 180px;
+            background-image: url(images/landscape.avif);
+            background-position: center center;
+        }
+
+
+        /* 精品風 Navigation */
+
+        .nav{
+            background-color: var(--navigation-background-color);
+            padding-top: 18px;
+            padding-bottom: 18px;
+        }
+
+        .nav ul{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .nav ul li a{
+            background-color: var(--navigation-link-background-color);
+            color: var(--navigation-link-text-color);
+
+            padding-top: 12px;
+            padding-bottom: 12px;
+
+            margin-bottom: 8px;
+
+            border-radius: 2px;
+
+            box-shadow: none;
+
+            font-size: 16px;
+            font-weight: normal;
+
+            letter-spacing: 2px;
+        }
+
+        .nav ul li a:hover{
+            background-color: rgb(65, 61, 55);
+            color: rgb(218, 192, 145);
+
+            border-radius: 2px;
+
+            box-shadow: none;
+        }
+
+
+        /* 精品風 Content */
+
+        .content{
+            padding: 35px 25px;
+            background-color: var(--content-background-color);
+        }
+
+        .content h1{
+            color: var(--content-heading-color);
+            font-size: 30px;
+            font-weight: normal;
+            letter-spacing: 4px;
+            line-height: 1.5;
+        }
+
+        .content p{
+            color: rgb(83, 79, 73);
+            font-size: 16px;
+            line-height: 1.9;
+            margin: 20px 5px;
+        }
+
+
+        /* 精品風 Button */
+
+        .content a{
+            background-color: var(--content-link-background-color);
+            color: var(--content-link-text-color);
+
+            width: 150px;
+            height: 42px;
+
+            font-size: 15px;
+            font-weight: normal;
+
+            line-height: 42px;
+
+            letter-spacing: 2px;
+
+            border-radius: 2px;
+
+            box-shadow: none;
+        }
+
+
+        /* 精品風 Footer */
+
+        .footer{
+            background-color: var(--footer-background-color);
+            color: var(--footer-text-color);
+
+            font-size: 14px;
+            font-weight: normal;
+
+            letter-spacing: 1px;
+
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="banner">
+            <div class="logo bg-img"></div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">最新消息</a></li>
+                    <li><a href="#">合作店家</a></li>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <h1>歡迎光臨</h1>
+            <div class="title-01">項目一</div>
+            <P class="fw-900">進行道德基本運行平台，笑着比例，權力目光客人共同整個心靈之家和我，最大貨幣如果姑娘走向其它戀愛進了新聞看了法人就能，得分拒絶一定門派確定商機各種朋友理想一番來。</P>
+            <div class="title-02">項目二</div>
+            <P>緊急存款任何人平衡權威練習連接當天衛生引進作者第二章機票，價格投訴嘉義留言板，持續聊天通信報名幹什麼第一任何人友情連結新型，社會版權晶片，投訴全球微笑選擇戀愛繼續正式登錄好多技術激情生意使用風格，是怎麼為您能源小心我說而言心靈本科業主，哪裡斗內，你有採用。</P>
+            <div class="title-03">項目三</div>
+            <P>住房邀請原文無門留在寫真之一，不要很多起點廣告校長短信還在施工轉變長時間親自工資商城，啟動黑暗其中平方米圖像化精采可見老師回事異常攝影，去年軟體網域名稱回到各位食品你沒有專欄招聘說什麼，在我甚至溫度無數最好的真實獨特第一根本告訴，訊息進口。</P>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="footer">
+            PowerBy XXX 2026.09.23
+        </div>
+    </div>    
+    
+</body>
+</html>
